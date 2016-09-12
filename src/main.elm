@@ -1,4 +1,4 @@
-port module Todo exposing (..)
+port module Main exposing (..)
 
 {-| TodoMVC implemented in Elm, using plain HTML and CSS for rendering.
 This application is broken up into three key parts:
@@ -223,7 +223,7 @@ taskEntry : String -> Html Msg
 taskEntry task =
     header
         [ id "header" ]
-        [ h1 [] [ text "Elmctron" ]
+        [ h1 [] [ text "Elmctron ssss" ]
         , input
             [ id "new-todo"
             , placeholder "What needs to be done?"
