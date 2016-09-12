@@ -1,12 +1,12 @@
 {
   "name": "Elmctron",
   "version": "0.1.0",
-  "author": "Nir Galon <nirgn975@gmail.com> (http://nirgn.com)",
+  "author": "Jih-Chi Lee <achi@987.tw) (http://github.com/jihchi)",
   "summary": "TodoMVC Elm and Electron.",
   "main": "main-electron.js",
-  "repository": "https://github.com/nirgn975/Elmctron.git",
+  "repository": "https://github.com/jihchi/Elmctron",
   "description": "A todo app.",
-  "homepage": "http://yourAppHomePage.com",
+  "homepage": "http://github.com/jihchi",
   "devDependencies": {
     "concurrently": "^2.2.0",
     "css-loader": "^0.25.0",
@@ -29,9 +29,8 @@
     "start": "electron .",
     "start-webpack": "webpack-dev-server --hot --inline --port 3000",
     "dev": "concurrently --kill-others \"npm run start-webpack\" \"npm run start\"",
-    "pack": "build --dir",
-    "dist": "build",
-    "build": "webpack"
+    "build-electron": "build",
+    "build-webpack": "webpack"
   },
   "build": {
     "appId": "your.id",
@@ -52,7 +51,7 @@
       ]
     },
     "win": {
-      "iconUrl": "https://github.com/nirgn975/Elmctron"
+      "iconUrl": "http://github.com/jihchi"
     },
     "linux": {
       "target": [
