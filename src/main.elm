@@ -296,7 +296,7 @@ todoItem todo =
                 []
             , label
                 [ onDoubleClick (EditingTask todo.id True) ]
-                [ text todo.description ]
+                [ text (todo.description ++ "") ]
             , button
                 [ class "destroy"
                 , onClick (Delete todo.id)
