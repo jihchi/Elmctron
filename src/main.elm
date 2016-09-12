@@ -223,7 +223,7 @@ taskEntry : String -> Html Msg
 taskEntry task =
     header
         [ id "header" ]
-        [ h1 [] [ text "Elmctron ssss" ]
+        [ h1 [] [ text "Elmctron" ]
         , input
             [ id "new-todo"
             , placeholder "What needs to be done?"
