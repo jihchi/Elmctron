@@ -1,22 +1,45 @@
+'use strict';
 const electron = require('electron');
+
 const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
-var mainWindow = null;
+
+// adds debug features like hotkeys for triggering dev tools and reload
+require('electron-debug')();
+
+// prevent window being garbage collected
+let mainWindow;
+
+function onClosed() {
+	// dereference the window
+	// for multiple windows store them in an array
+	mainWindow = null;
+}
+
+function createMainWindow() {
+	const win = new electron.BrowserWindow({
+		width: 600,
+		height: 400
+	});
+
+	win.loadURL(`http://localhost:3000/`);
+	win.on('closed', onClosed);
+
+	return win;
+}
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+	if (process.platform !== 'darwin') {
+		app.quit();
+	}
+});
+
+app.on('activate', () => {
+	if (!mainWindow) {
+		mainWindow = createMainWindow();
+	}
 });
 
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({
-    width: 1024,
-    height: 768,
-  });
-  mainWindow.loadURL('http://localhost:3000');
-  mainWindow.openDevTools();
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
+	mainWindow = createMainWindow();
 });
+
